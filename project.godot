@@ -21,11 +21,11 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Menu="*res://menu/menu.gd"
+Enum="*res://enum.gd"
+StateManager="*res://game/state/state_manager.gd"
 
 [debug]
 
-gdscript/warnings/treat_warnings_as_errors=true
 gdscript/warnings/return_value_discarded=false
 
 [display]

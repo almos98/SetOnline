@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://menu/menu_state.gd" type="Script" id=1]
+[ext_resource path="res://game/state/simple_menu_state.gd" type="Script" id=1]
 [ext_resource path="res://menu/multiplayer_menu.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Theme" id=1]
@@ -41,7 +41,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-buttons_path = [ NodePath(""), NodePath("VBox/HBoxContainer/MenuButtons/OnlineButton"), NodePath(""), NodePath("") ]
+buttons_path = [ NodePath("VBox/HBoxContainer/MenuButtons/SinglePlayerButton"), NodePath("VBox/HBoxContainer/MenuButtons/OnlineButton"), NodePath("VBox/HBoxContainer/MenuButtons/TutorialButton"), NodePath("VBox/HBoxContainer/MenuButtons/OptionsButton") ]
 scene_transitions = [ null, ExtResource( 2 ), null, null ]
 
 [node name="VBox" type="VBoxContainer" parent="."]
