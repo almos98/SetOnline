@@ -22,7 +22,7 @@ func register(menu: Control) -> void:
 func change_scene(menu: Control, t: int) -> void:
 	states.push_back(get_tree().current_scene.filename);
 	
-	get_tree().change_scene_to(menu.scene_transitions[t]) == OK
+	get_tree().change_scene_to(menu.scene_transitions[t]);
 
 func back() -> void:
 	if states.empty():
