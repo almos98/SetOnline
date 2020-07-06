@@ -41,7 +41,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-buttons_container_path = NodePath("VBox/HBoxContainer/MenuButtons")
+buttons_path = [ NodePath(""), NodePath("VBox/HBoxContainer/MenuButtons/OnlineButton"), NodePath(""), NodePath("") ]
 scene_transitions = [ null, ExtResource( 2 ), null, null ]
 
 [node name="VBox" type="VBoxContainer" parent="."]

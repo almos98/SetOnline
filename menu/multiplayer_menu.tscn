@@ -9,8 +9,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-buttons_container_path = NodePath(".")
-scene_transitions = [ null ]
 back_button_path = NodePath("Button")
 
 [node name="Button" type="Button" parent="."]
