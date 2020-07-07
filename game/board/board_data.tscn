@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://game/board/board_data.gd" type="Script" id=1]
+[ext_resource path="res://game/card/card_data.tscn" type="PackedScene" id=2]
+
+[node name="Board" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Cards" type="Node" parent="."]
+
+[node name="Card0" parent="Cards" instance=ExtResource( 2 )]
+
+[node name="Card1" parent="Cards" instance=ExtResource( 2 )]
+
+[node name="Card2" parent="Cards" instance=ExtResource( 2 )]
+
+[node name="Card3" parent="Cards" instance=ExtResource( 2 )]
+
+[node name="Card4" parent="Cards" instance=ExtResource( 2 )]
+
+[node name="Card5" parent="Cards" instance=ExtResource( 2 )]
+
+[node name="Card6" parent="Cards" instance=ExtResource( 2 )]
+
+[node name="Card7" parent="Cards" instance=ExtResource( 2 )]
+
+[node name="Card8" parent="Cards" instance=ExtResource( 2 )]
+
+[node name="Card9" parent="Cards" instance=ExtResource( 2 )]
+
+[node name="Card10" parent="Cards" instance=ExtResource( 2 )]
+
+[node name="Card11" parent="Cards" instance=ExtResource( 2 )]
+
+[node name="Card12" parent="Cards" instance=ExtResource( 2 )]
+active = false
+
+[node name="Card13" parent="Cards" instance=ExtResource( 2 )]
+active = false
+
+[node name="Card14" parent="Cards" instance=ExtResource( 2 )]
+active = false
