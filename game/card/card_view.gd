@@ -5,9 +5,9 @@ export (NodePath) var data;
 onready var registered_components: Array;
 onready var data_object;
 
-func _ready():
+func initialize():
 	assert(!data.is_empty(), 
-		"[ERROR]: Card data is not set.");
+		"[ERROR] Card data is not set.");
 	
 	data_object = get_node(data);
 	
@@ -18,7 +18,7 @@ func _ready():
 	data_object.connect("deselected", self, "set_selection", [false]);
 	
 	update_card();
-
+	
 func update_card() -> void:
 	for c in registered_components:
 		c.queue_free();
@@ -97,7 +97,7 @@ func update_card() -> void:
 	call_deferred("add_child", component_shape);
 	call_deferred("add_child", component_shape_cover);
 	call_deferred("add_child", component_texture);
-
+	
 func move_shape(components: Array, position: Vector2, copy: bool = false) -> void:
 	for c in components:
 		if !copy:
@@ -118,6 +118,6 @@ func set_visible(new: bool) -> void:
 func set_selection(new: bool) -> void:
 	$Outline.visible = new;
 
-func _input_event(_viewport: Object, event: InputEvent, shape_idx: int):
+func _input_event(_viewport: Object, event: InputEvent, _shape_idx: int):
 	if event.is_action_pressed("ui_select"):
 		data_object.toggle_selection();

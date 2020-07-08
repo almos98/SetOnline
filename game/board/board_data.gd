@@ -50,7 +50,7 @@ func card_selected(card):
 				card.set_properties(new_cards.pop_back());
 			
 			matched += 1;
-			clear_selection();
+		clear_selection();
 
 func clear_selection() -> void:
 	for card in selected:
