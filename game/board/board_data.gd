@@ -1,5 +1,7 @@
 extends Node
 
+signal matched;
+
 onready var deck := Deck.new();
 onready var selected: Array;
 var matched: int = 0;
@@ -34,6 +36,7 @@ func _ready():
 		if !card.active:
 			continue;
 		card.connect("selected", self, "card_selected", [card]);
+		card.connect("deselected", self, "card_selected", [card]);
 		card.set_attributes(dealt_cards.pop_back());
 	
 func card_selected(card):
@@ -47,14 +50,15 @@ func card_selected(card):
 		if is_match(selected):
 			var new_cards: Array = deck.deal_cards(3);
 			for card in selected:
-				card.set_properties(new_cards.pop_back());
+				card.set_attributes(new_cards.pop_back());
 			
 			matched += 1;
+			emit_signal("matched");
 		clear_selection();
 
 func clear_selection() -> void:
-	for card in selected:
-		card.toggle_selection();
+	for card in $Cards.get_children():
+		card.set_selection(false);
 	selected.clear()
 
 func is_match(cards: Array) -> bool:

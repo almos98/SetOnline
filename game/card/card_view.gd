@@ -120,4 +120,6 @@ func set_selection(new: bool) -> void:
 
 func _input_event(_viewport: Object, event: InputEvent, _shape_idx: int):
 	if event.is_action_pressed("ui_select"):
+		if data_object == null:
+			initialize();
 		data_object.toggle_selection();

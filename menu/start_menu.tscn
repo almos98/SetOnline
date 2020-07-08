@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://game/state/simple_menu_state.gd" type="Script" id=1]
 [ext_resource path="res://menu/multiplayer_menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/modes/single_player.tscn" type="PackedScene" id=3]
 
 [sub_resource type="Theme" id=1]
 
@@ -42,7 +43,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 buttons_path = [ NodePath("VBox/HBoxContainer/MenuButtons/SinglePlayerButton"), NodePath("VBox/HBoxContainer/MenuButtons/OnlineButton"), NodePath("VBox/HBoxContainer/MenuButtons/TutorialButton"), NodePath("VBox/HBoxContainer/MenuButtons/OptionsButton") ]
-scene_transitions = [ null, ExtResource( 2 ), null, null ]
+scene_transitions = [ ExtResource( 3 ), ExtResource( 2 ), null, null ]
 
 [node name="VBox" type="VBoxContainer" parent="."]
 margin_left = 48.0
@@ -54,11 +55,10 @@ margin_bottom = 202.0
 margin_right = 288.0
 margin_bottom = 35.0
 custom_fonts/font = SubResource( 3 )
-text = "Totally Not Set"
+text = "Triplet Online"
 align = 1
 valign = 1
 autowrap = true
-uppercase = true
 
 [node name="HBoxContainer" type="CenterContainer" parent="VBox"]
 margin_top = 39.0
@@ -131,5 +131,5 @@ margin_top = 151.0
 margin_right = 288.0
 margin_bottom = 178.0
 custom_fonts/font = SubResource( 10 )
-text = "v.0.1.2
+text = "v.0.2.1
 Alexion Ramos"

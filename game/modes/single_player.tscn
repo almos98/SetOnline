@@ -1,13 +1,37 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://game/board/board_view.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/board/board_data.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/fonts/aseprite_font.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://game/modes/single_player.gd" type="Script" id=4]
 
-[node name="SinglePlayer" type="Node2D"]
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[node name="SinglePlayer" type="Control"]
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="BoardView" parent="." instance=ExtResource( 1 )]
+position = Vector2( 32, 24 )
 board_data_path = NodePath("../Board")
 
 [node name="Board" parent="." instance=ExtResource( 2 )]
+
+[node name="ScoreLabel" type="Label" parent="."]
+margin_left = 365.0
+margin_top = 5.0
+margin_right = 383.0
+margin_bottom = 32.0
+custom_fonts/font = SubResource( 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="matched" from="Board" to="." method="_on_Board_matched"]
+
+[editable path="BoardView"]
 
 [editable path="Board"]
