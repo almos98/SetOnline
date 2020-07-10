@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://game/state/simple_menu_state.gd" type="Script" id=1]
 [ext_resource path="res://menu/multiplayer_menu.tscn" type="PackedScene" id=2]
@@ -13,15 +13,13 @@ font_path = "res://assets/fonts/aseprite_font.ttf"
 size = 48
 font_data = SubResource( 2 )
 
-[sub_resource type="StyleBoxEmpty" id=4]
+[sub_resource type="StyleBoxFlat" id=11]
 
-[sub_resource type="StyleBoxEmpty" id=5]
+[sub_resource type="StyleBoxFlat" id=12]
 
-[sub_resource type="StyleBoxEmpty" id=6]
+[sub_resource type="StyleBoxFlat" id=13]
 
-[sub_resource type="StyleBoxEmpty" id=7]
-
-[sub_resource type="StyleBoxEmpty" id=8]
+[sub_resource type="StyleBoxFlat" id=14]
 
 [sub_resource type="DynamicFont" id=9]
 size = 32
@@ -33,6 +31,8 @@ font_data = SubResource( 2 )
 [node name="StartMenu" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = -1.0
+margin_bottom = 9.0
 theme = SubResource( 1 )
 custom_constants/margin_right = 48
 custom_constants/margin_top = 24
@@ -42,94 +42,88 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-buttons_path = [ NodePath("VBox/HBoxContainer/MenuButtons/SinglePlayerButton"), NodePath("VBox/HBoxContainer/MenuButtons/OnlineButton"), NodePath("VBox/HBoxContainer/MenuButtons/TutorialButton"), NodePath("VBox/HBoxContainer/MenuButtons/OptionsButton") ]
+buttons_path = [ NodePath("VBoxContainer/Buttons/SinglePlayerButton"), NodePath("VBoxContainer/Buttons/OnlineButton"), NodePath(""), NodePath("") ]
 scene_transitions = [ ExtResource( 3 ), ExtResource( 2 ), null, null ]
 
-[node name="VBox" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 margin_left = 48.0
 margin_top = 24.0
 margin_right = 336.0
 margin_bottom = 202.0
+size_flags_vertical = 2
 
-[node name="TitleLabel" type="Label" parent="VBox"]
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
 margin_right = 288.0
 margin_bottom = 35.0
+size_flags_vertical = 1
 custom_fonts/font = SubResource( 3 )
 text = "Triplet Online"
 align = 1
 valign = 1
 autowrap = true
 
-[node name="HBoxContainer" type="CenterContainer" parent="VBox"]
-margin_top = 39.0
-margin_right = 288.0
-margin_bottom = 147.0
-
-[node name="MenuButtons" type="VBoxContainer" parent="VBox/HBoxContainer"]
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer"]
 margin_left = 89.0
+margin_top = 39.0
 margin_right = 199.0
-margin_bottom = 108.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+margin_bottom = 147.0
+size_flags_horizontal = 4
 
-[node name="SinglePlayerButton" type="Button" parent="VBox/HBoxContainer/MenuButtons"]
+[node name="SinglePlayerButton" type="Button" parent="VBoxContainer/Buttons"]
 margin_right = 110.0
 margin_bottom = 24.0
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
 custom_fonts/font = SubResource( 9 )
 text = "Single Player"
 
-[node name="OnlineButton" type="Button" parent="VBox/HBoxContainer/MenuButtons"]
+[node name="OnlineButton" type="Button" parent="VBoxContainer/Buttons"]
 margin_top = 28.0
 margin_right = 110.0
 margin_bottom = 52.0
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
 custom_fonts/font = SubResource( 9 )
 text = "Online"
 
-[node name="TutorialButton" type="Button" parent="VBox/HBoxContainer/MenuButtons"]
+[node name="TutorialButton" type="Button" parent="VBoxContainer/Buttons"]
 margin_top = 56.0
 margin_right = 110.0
 margin_bottom = 80.0
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
 custom_fonts/font = SubResource( 9 )
 text = "How To Play"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="OptionsButton" type="Button" parent="VBox/HBoxContainer/MenuButtons"]
+[node name="OptionsButton" type="Button" parent="VBoxContainer/Buttons"]
 margin_top = 84.0
 margin_right = 110.0
 margin_bottom = 108.0
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/disabled = SubResource( 7 )
-custom_styles/normal = SubResource( 8 )
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/focus = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
 custom_fonts/font = SubResource( 9 )
 text = "Options"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="VersionLabel" type="Label" parent="VBox"]
+[node name="VersionLabel" type="Label" parent="VBoxContainer"]
 margin_top = 151.0
-margin_right = 288.0
+margin_right = 62.0
 margin_bottom = 178.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
 custom_fonts/font = SubResource( 10 )
-text = "v.0.2.1
+text = "v.0.2.2
 Alexion Ramos"
